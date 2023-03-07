@@ -5,6 +5,7 @@ var cors = require("cors");
 require("dotenv").config();
 
 const app = express();
+require('./Configs/global');
 app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -21,6 +22,13 @@ app.use((req, res, next) => {
 });
 
 const PORT = process.env.PORT || 5000;
+
+// ------------------------    RESPONSE HANDLER    -------------------
+app.use((req, res, next) => {
+  const ResponseHandler = require('./Configs/responseHandler')
+  res.handler = new ResponseHandler(req, res);
+  next()
+})
 
 const router = require("./Routes/index");
 const server = http.createServer(app);
