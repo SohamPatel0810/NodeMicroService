@@ -1,0 +1,7 @@
+{
+    "VALIDATION":{
+        "EXISTS":{
+            "EMAIL":"A customer having this email address already exists"
+        }
+    }
+}

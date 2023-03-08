@@ -4,6 +4,32 @@ class ResponseHandler {
         this.res = res;
     }
 
+    sender(code, message, data, error) {
+        if (error) {
+            if (error.code === "LIMIT_FILE_SIZE")
+                return this.res
+                    .status(STATUS_CODES.NOT_ALLOWED)
+                    .json({
+                        message: error.message
+                    })
+
+            // HANDLE LOGS AND OTHER STUFF
+            console.log("-----------------------------------------------------------------")
+            console.error(this.req.method + " : " + this.req.originalUrl);
+            console.error("ERROR", error);
+            console.error("Headers : ", JSON.stringify(this.req.headers));
+            console.error("Body : ", JSON.stringify(this.req.body));
+            console.log("-----------------------------------------------------------------")
+        }
+
+        this.res
+            .status(code)
+            .json({
+                message: (typeof message === 'string' ? this.res.__(message) : this.res.__(message.key, message.value)),
+                data
+            })
+    }
+
     custom(...args) { this.sender(...args) }
 
     // 2XX SUCCESS
