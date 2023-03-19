@@ -1,8 +1,7 @@
-const express = require('express');
-const router = express.Router();
+module.exports = app => {
+    app.get('/', (req, res) => {
+        res.send("Welcome to Customer Module Backend");
+    })
 
-router.get('/',(req,res) => {
-    res.send("Welcome to Customer Module Backend");
-});
-
-module.exports = router;
+    app.use("/authentication", require('./authentication'));
+}

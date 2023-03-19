@@ -1,6 +1,5 @@
 const { validationResult } = require('express-validator');
-const {customer_token: CustomerTokenSchema } = require('../Database/Schemas');
-
+const { customer_token: CustomerTokenSchema } = require('../Database/Schemas')
 exports.authentication = async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty())
