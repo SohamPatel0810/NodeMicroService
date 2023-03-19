@@ -5,23 +5,23 @@ const Schema = mongoose.Schema;
 const CustomerSchema = new Schema({
     email: {
         type: String,
-        required: true,
+        required: true
     },
     password: {
         type: String,
-        required: true,
+        required: true
     },
-    full_name: {
+    first_name: {
         type: String,
-        required: true,
+        required: true
     },
     last_name: {
         type: String,
-        required: true,
+        required: true
     },
     user_name: {
         type: String,
-        required: true,
+        required: true
     },
     mobile_number: {
         type: Number,
@@ -29,23 +29,23 @@ const CustomerSchema = new Schema({
     },
     country_code: {
         type: String,
-        required: true,
+        required: true
     },
     street_name: {
         type: String,
-        required: true,
+        required: true
     },
     city: {
         type: String,
-        required: true,
+        required: true
     },
     state: {
         type: String,
-        required: true,
+        required: true
     },
     country:{
         type: String,
-        required: true,
+        required: true
     },
     cart: [
         {
@@ -56,16 +56,6 @@ const CustomerSchema = new Schema({
                 price: { type: Number},
             },
           unit: { type: Number, require: true}
-        }
-    ],
-    wishlist:[
-        {
-            _id: { type: String, require: true },
-            name: { type: String },
-            description: { type: String },
-            banner: { type: String },
-            avalable: { type: Boolean },
-            price: { type: Number },
         }
     ],
     orders: [

@@ -33,6 +33,7 @@ language.configure({
     objectNotation: true,
     syncFiles: true,
 });
+app.use(language.init);
 
 // ------------------------    RESPONSE HANDLER    -------------------
 app.use((req, res, next) => {
@@ -40,11 +41,10 @@ app.use((req, res, next) => {
   res.handler = new ResponseHandler(req, res);
   next()
 })
+// ------------------------- ROUTES ------------------------
+const router = require('./Routes');
+router(app);
 
-const router = require("./Routes/index");
 const server = http.createServer(app);
-
-app.use(router);
-
 
 server.listen(PORT, () => console.log(`Customer Server running on port ${PORT}`));

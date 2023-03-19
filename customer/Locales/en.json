@@ -3,5 +3,8 @@
         "EXISTS":{
             "EMAIL":"A customer having this email address already exists"
         }
+    },
+    "CREATED":{
+        "USER":"Successfully created new user."
     }
 }
