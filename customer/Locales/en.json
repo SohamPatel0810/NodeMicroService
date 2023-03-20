@@ -1,10 +1,23 @@
 {
-    "VALIDATION":{
-        "EXISTS":{
-            "EMAIL":"A customer having this email address already exists"
-        }
-    },
-    "CREATED":{
-        "USER":"Successfully created new user."
-    }
+	"VALIDATION": {
+		"EXISTS": {
+			"EMAIL": "A customer having this email address already exists"
+		},
+		"NOT_EXISTS": {
+			"USER": "User does not exist"
+		}
+	},
+	"CREATED": {
+		"USER": "Successfully created new user."
+	},
+	"SUCCESS": {
+		"TOKEN_CREATED": "Successfully logged in"
+	},
+	"STATUS": {
+		"SERVER_ERROR": "STATUS.SERVER_ERROR",
+		"UNAUTHORIZED": "STATUS.UNAUTHORIZED"
+	},
+	"STATUS_CODES": {
+		"SUCCESS": "STATUS_CODES.SUCCESS"
+	}
 }

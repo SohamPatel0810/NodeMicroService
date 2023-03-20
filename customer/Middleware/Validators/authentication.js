@@ -10,3 +10,7 @@ exports.signup = [
         body("mobile_number","Please enter mobile number").trim().notEmpty()
 ];
 
+exports.login = [
+        body('email', 'Please enter valid email id!').notEmpty().isEmail(),
+        body('password', 'Please enter password.').trim().notEmpty(),
+]

@@ -4,4 +4,5 @@ module.exports = app => {
     })
 
     app.use("/authentication", require('./authentication'));
+    app.use("/customer", require('./customer'));
 }

@@ -16,22 +16,7 @@ exports.authentication = async (req, res, next) => {
         {
             $match: { auth_token: req.headers.auth_token },
         },
-        { $project: { "customer_id": 1, } },
-        {
-            $lookup: {
-                from: 'customer',
-                localField: 'customer_id',
-                foreignField: '_id',
-                as: 'customer',
-            }
-        },
-        {
-            $project: {
-                customer_id:"$customer._id",
-                full_name: "$customer.full_name",
-                user_name: "$customer.user_name",
-            }
-        }
+        { $project: { "customer_id": 1, } }
     ])
 
     if (data.length < 1)

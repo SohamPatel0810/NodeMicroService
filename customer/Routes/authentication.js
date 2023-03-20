@@ -8,6 +8,9 @@ const AuthController = new (require('../Controller/authentication'));
 
 //ROUTES
 router.route('/sign-up')
-    .post(authValidator.signup, Authentication, AuthController.signUp)
+    .post(authValidator.signup, AuthController.signUp)
+
+router.route('/login')
+    .post(authValidator.login,AuthController.login)
 
 module.exports = router
